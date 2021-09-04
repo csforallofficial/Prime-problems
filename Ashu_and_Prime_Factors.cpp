@@ -54,4 +54,5 @@ int main(){
 		cin >> n;
 		cout << arr2[n]+1 << endl;
 	}
+	return 0;
 }
