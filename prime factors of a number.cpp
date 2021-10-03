@@ -1,6 +1,28 @@
 //INPUT - 468
 //OUTPUT - 2 * 2 * 3 * 3 * 13
 
+//1st approach - Brute - O(sqrt(N))
+#include<iostream>
+using namespace std;
+
+int main(){
+    int n;
+    scanf("%d",&n);
+    int i = 2;
+    while(n>1){
+        if(!(n%i)){
+            printf("%d ",i);
+            n /= i;
+        }
+        else
+            i++;
+    }
+    printf("\n");
+    return 0;
+}
+
+//2nd approach - Best - O(log N)
+
 #include<iostream>
 using namespace std;
 
