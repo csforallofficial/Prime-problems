@@ -21,7 +21,7 @@ int main(){
     return 0;
 }
 
-//2nd approach - Best - O(log N)
+//2nd approach - Better - Time - O(log N), Space - O(2N)
 
 #include<iostream>
 using namespace std;
@@ -52,6 +52,40 @@ int main(){
     while(n>1){
         printf("%d ",direct[n]);
         n /= direct[n];
+    }
+    printf("\n");
+    return 0;
+}
+
+
+//3rd approach - Best - Time - O(log N), Space - O(N)
+
+#include<iostream>
+using namespace std;
+
+int sieve[1000005];
+int N = 1000000;
+void createsieve(){
+    for(int i = 0; i <= N; i++)
+        sieve[i] = i;
+    
+    for(int i = 2; i*i <= N; i++){
+        if(sieve[i] == i){
+            for(int j = i*i; j <= N; j+=i){
+                if(sieve[j] == j)
+                    sieve[j] = i;
+            }
+        }
+    }
+}
+
+int main(){
+    createsieve();
+    int n;
+    scanf("%d",&n);
+    while(n>1){
+        printf("%d ",sieve[n]);
+        n /= sieve[n];
     }
     printf("\n");
     return 0;
